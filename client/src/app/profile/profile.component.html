@@ -1,6 +1,6 @@
 <div>
     <div *ngIf="isConnected;else Login">
-        hey connected
+        <app-settings></app-settings>
     </div>
     <ng-template #Login>
         <app-auth></app-auth>

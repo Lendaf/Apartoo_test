@@ -1,1 +1,22 @@
-<p>settings works!</p>
+<div style="width: 50%;">
+    <form #form="ngForm" (submit)="updateUser()" class="right">
+        <mat-card-content>
+            <mat-card-title>Settings</mat-card-title>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="age" type="number" name="age" required [(ngModel)]="settings.age"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="family" type="text" name="family" required [(ngModel)]="settings.family"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="race" type="text" name="race" required [(ngModel)]="settings.race"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="food" type="text" name="food" required [(ngModel)]="settings.food"/>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" >Update Info</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </form>
+</div>

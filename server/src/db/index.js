@@ -7,7 +7,7 @@ const mongooseSettings = {
     useFindAndModify: false,
 };
 
-const url = "mongodb+srv://Admin:admin123456789@cluster0.9ahjq.mongodb.net/cluster0?retryWrites=true&w=majority"
+const url = "mongodb+srv://Admin:admin123456789@cluster0.9ahjq.mongodb.net/Test?retryWrites=true&w=majority"
 
 const initDb = () => {
     return new Promise((resolve, reject) => {

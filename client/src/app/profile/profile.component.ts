@@ -7,13 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   isConnected = false
-  
-  Pangolin = {
-    age: '',
-    family: '',
-    race: '',
-    food: '',
-  }
 
   constructor() { }
 
