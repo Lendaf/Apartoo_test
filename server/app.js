@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
@@ -17,4 +18,4 @@ initDb()
         const port = 8080;
         app.listen(port, () => console.log(`The magic port is ${port}`));
     })
-    .catch(() => process.exit(1));
+    .catch((err) => console.log(err));

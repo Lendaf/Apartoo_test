@@ -20,12 +20,22 @@ const updateUser = (req, res) => {
 	User.updateOne({ username: username }, req.body)
         .exec()
         .then((user) => {
-            console.log(user)
             if (!user) return res.send({ status: false, data: 'User not found.'})
 			res.send({ status: true, data: "Sucessfully saved!" })
 		})
         .catch((err) => res.send({ status: false, data: err.message }));
 }
 
+const getAllUser = (req, res) => {
+	User.find({})
+        .exec()
+        .then((users) => {
+            if (!users) return res.send({ status: false, data: 'No user in database'})
+    		res.send({ status: true, data: users });
+	    })
+        .catch((err) => res.send({ status: false, data: err.message }));
+}
+
 exports.findUser = findUser
 exports.updateUser = updateUser
+exports.getAllUser = getAllUser

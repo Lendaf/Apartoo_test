@@ -1,6 +1,7 @@
 <div>
     <div *ngIf="isConnected;else Login">
-        <app-settings></app-settings>
+        <app-settings class="left-component"></app-settings>
+        <app-friends class="right-component"></app-friends>
     </div>
     <ng-template #Login>
         <app-auth></app-auth>

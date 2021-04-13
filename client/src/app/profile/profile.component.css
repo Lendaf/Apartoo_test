@@ -1,0 +1,11 @@
+.right-component {
+    width: 50%;
+    float: right;
+    height: 300px;
+}
+
+.left-component {
+    width: 50%;
+    float: left;
+    height: 300px;
+}

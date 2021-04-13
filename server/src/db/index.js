@@ -7,14 +7,10 @@ const mongooseSettings = {
     useFindAndModify: false,
 };
 
-const url = "mongodb+srv://Admin:admin123456789@cluster0.9ahjq.mongodb.net/Test?retryWrites=true&w=majority"
-
 const initDb = () => {
     return new Promise((resolve, reject) => {
-        const uri = url;
-
         console.log('Connecting to db...');
-        mongoose.connect(uri, mongooseSettings)
+        mongoose.connect(process.env.MONGODB_URI, mongooseSettings)
             .then(() => {
                 console.log('Successfully connected to MongoDB !');
                 resolve();
