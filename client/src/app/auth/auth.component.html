@@ -10,16 +10,16 @@
                     <input matInput placeholder="email" type="email" name="email" required [(ngModel)]="Pangolin.email"/>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="age" type="number" name="age" required [(ngModel)]="Pangolin.age"/>
+                    <input matInput placeholder="age" type="number" name="age" [(ngModel)]="Pangolin.age"/>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="family" type="text" name="family" required [(ngModel)]="Pangolin.family"/>
+                    <input matInput placeholder="family" type="text" name="family" [(ngModel)]="Pangolin.family"/>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="race" type="text" name="race" required [(ngModel)]="Pangolin.race"/>
+                    <input matInput placeholder="race" type="text" name="race" [(ngModel)]="Pangolin.race"/>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="food" type="text" name="food" required [(ngModel)]="Pangolin.food"/>
+                    <input matInput placeholder="food" type="text" name="food" [(ngModel)]="Pangolin.food"/>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <input matInput placeholder="password" type="password" name="password" required [(ngModel)]="Pangolin.password"/>
@@ -30,7 +30,7 @@
                 <mat-card-actions>
                     <button type="submit" >S'inscrire</button>
                 </mat-card-actions>
-                <p>Si tu as déjà un compte <a (click)="switch()">Connecte-toi</a></p>
+                <p>Si tu as déjà un compte <button (click)="switch()">Connecte-toi</button></p>
             </mat-card-content>
         </form>
     </div>
@@ -47,7 +47,7 @@
                 <mat-card-actions>
                     <button type="submit" >Se connecter</button>
                 </mat-card-actions>
-                <p>Si tu n'as pas de compte <a (click)="switch()">Inscris-toi</a></p>
+                <p>Si tu n'as pas de compte <button (click)="switch()">Inscris-toi</button></p>
             </mat-card-content>
         </form>
     </ng-template>

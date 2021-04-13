@@ -1,5 +1,3 @@
-const Bottle = require("../../models/User");
-
 const User = require('../../models/User');
 
 const findUser = (req, res) => {

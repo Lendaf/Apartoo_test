@@ -13,4 +13,9 @@ router.get('/findUser', findUser)
 router.put('/updateUser', updateUser)
 router.get('/getAllUser', getAllUser)
 
+const { addFriend, deleteFriend } = require('../controller/friend/friend');
+
+router.put('/addFriend', addFriend)
+router.put('/deleteFriend', deleteFriend)
+
 module.exports = router;

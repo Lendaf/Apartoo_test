@@ -43,27 +43,27 @@ export class AuthComponent implements OnInit {
   }
 
   SignIn() {
-    this.http.get(`${BASE_URL}/signIn?username=${this.Pangolin.username}&password=${this.Pangolin.password}`, {responseType: 'text'})
-      .subscribe(res => {
-        if (res === "Connected") {
+    this.http.get(`${BASE_URL}/signIn?username=${this.Pangolin.username}&password=${this.Pangolin.password}`)
+      .subscribe((res: any) => {
+        if (res.status) {
           localStorage.username = this.Pangolin.username
           window.location.reload()
         } else {
-          alert(res)
+          alert(res.data)
         }
       })
   }
 
   SignUp() {
     if (this.Pangolin.password === this.Pangolin.confirmPassword) {
-      this.http.post(`${BASE_URL}/signUp`, this.Pangolin, {responseType: 'text'})
-        .subscribe(res => {
-          console.log(res)
-          if (res === "User successfully added to db") {
+      this.http.post(`${BASE_URL}/signUp`, this.Pangolin)
+        .subscribe((res: any) => {
+          if (res.status) {
             localStorage.username = this.Pangolin.username
             window.location.reload()
           } else {
-            alert(res)
+            console.log(res.status)
+            alert(res.data)
           }
         })
     }

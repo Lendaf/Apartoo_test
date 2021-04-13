@@ -46,17 +46,6 @@
     align-items: center;
   }
 
-  .toolbar a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  .toolbar a:hover {
-    color: #125699;
-  }
-
   mat-icon {
     color: white;
     height: 24;

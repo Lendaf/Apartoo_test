@@ -45,16 +45,30 @@ export class FriendsComponent implements OnInit {
   }
 
   deleteFriends (unfriend: any) {
+    const fd = {
+      "0": {
+        username: unfriend.username,
+        friends: [{username: this.currentUser.username}]
+      },
+      "1": this.currentUser
+    }
     this.users.push(unfriend)
     this.currentUser.friends = this.currentUser.friends.filter(user => user.username !== unfriend.username)
-    this.http.put(`${BASE_URL}/updateUser`, this.currentUser)
-    .subscribe(() => console.log("deleted"))
+    this.http.put(`${BASE_URL}/deleteFriend`, fd)
+      .subscribe(() => console.log("deleted"))
   }
 
   addFriends (newFriend: any) {
+    const fd = {
+      "0": {
+        username: newFriend.username,
+        friends: [{username: this.currentUser.username}]
+      },
+      "1": this.currentUser
+    }
     this.currentUser.friends.push(newFriend)
     this.users = this.users.filter(user => user.username !== newFriend.username)
-    this.http.put(`${BASE_URL}/updateUser`, this.currentUser)
+    this.http.put(`${BASE_URL}/addFriend`, fd)
       .subscribe(() => console.log("added"))
   }
 
