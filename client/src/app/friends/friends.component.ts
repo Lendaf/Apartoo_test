@@ -22,6 +22,7 @@ export class FriendsComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.status) {
           this.currentUser.friends = res.data.friends
+          localStorage.friends = JSON.stringify(res.data.friends)
         } else {
           alert(res.data)
         }
@@ -54,6 +55,7 @@ export class FriendsComponent implements OnInit {
     }
     this.users.push(unfriend)
     this.currentUser.friends = this.currentUser.friends.filter(user => user.username !== unfriend.username)
+    localStorage.friends = JSON.stringify(this.currentUser.friends)
     this.http.put(`${BASE_URL}/deleteFriend`, fd)
       .subscribe(() => console.log("deleted"))
   }
@@ -67,6 +69,7 @@ export class FriendsComponent implements OnInit {
       "1": this.currentUser
     }
     this.currentUser.friends.push(newFriend)
+    localStorage.friends = JSON.stringify(this.currentUser.friends)
     this.users = this.users.filter(user => user.username !== newFriend.username)
     this.http.put(`${BASE_URL}/addFriend`, fd)
       .subscribe(() => console.log("added"))

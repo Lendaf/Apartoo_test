@@ -1,0 +1,34 @@
+<div>
+    <form #form="ngForm" (submit)="SignUp()" style="padding-top: 1em;">
+        <mat-card-content>
+            <mat-card-title>Inscription</mat-card-title>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="username" type="text" name="username" required [(ngModel)]="Pangolin.username"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="email" type="email" name="email" required [(ngModel)]="Pangolin.email"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="age" type="number" name="age" [(ngModel)]="Pangolin.age"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="family" type="text" name="family" [(ngModel)]="Pangolin.family"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="race" type="text" name="race" [(ngModel)]="Pangolin.race"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="food" type="text" name="food" [(ngModel)]="Pangolin.food"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="password" type="password" name="password" required [(ngModel)]="Pangolin.password"/>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="confirm password" type="password" name="confirm password" required [(ngModel)]="Pangolin.confirmPassword"/>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" >S'inscrire</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </form>
+</div>

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   isConnected = false
+  newFriend = false
 
   constructor() { }
 
@@ -16,4 +17,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  changeState() {
+    this.newFriend = !this.newFriend
+  }
 }

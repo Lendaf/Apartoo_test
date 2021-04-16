@@ -11,6 +11,7 @@ import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FriendsComponent } from './friends/friends.component';
+import { NewFriendComponent } from './new-friend/new-friend.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FriendsComponent } from './friends/friends.component';
     AuthComponent,
     ProfileComponent,
     SettingsComponent,
-    FriendsComponent
+    FriendsComponent,
+    NewFriendComponent
   ],
   imports: [
     BrowserModule,
