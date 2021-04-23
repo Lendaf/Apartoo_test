@@ -55,7 +55,10 @@ export class FriendsComponent implements OnInit {
     this.users.push(unfriend)
     this.currentUser.friends = this.currentUser.friends.filter(user => user.username !== unfriend.username)
     this.friendService.deleteFriend(fd)
-      .subscribe(() => this.friendService.updateInfo(this.users, this.currentUser))
+      .subscribe(() => {
+        this.friendService.updateInfo(this.users, this.currentUser)
+        console.log("deleted")
+      })
   }
 
   addFriends (newFriend: any) {
@@ -69,7 +72,10 @@ export class FriendsComponent implements OnInit {
     this.currentUser.friends.push(newFriend)
     this.users = this.users.filter(user => user.username !== newFriend.username)
     this.friendService.addFriend(fd)
-      .subscribe(() => this.friendService.updateInfo(this.users, this.currentUser))
-  }
+      .subscribe(() => {
+        this.friendService.updateInfo(this.users, this.currentUser)
+        console.log("added")
+      })
+}
 
 }

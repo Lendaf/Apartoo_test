@@ -32,7 +32,10 @@ export class NewFriendComponent implements OnInit {
     }
     fd[1].friends.push({username: this.Pangolin.username})
     this.friendService.addFriend(fd)
-      .subscribe(() => console.log("added"))
+      .subscribe(() => {
+        console.log("added")
+        window.location.reload()
+      })
   }
 
   SignUp() {
