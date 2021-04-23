@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   isConnected = false
   newFriend = false
+  button_newFriend = "Add a new friend"
 
   constructor() { }
 
@@ -19,5 +20,10 @@ export class ProfileComponent implements OnInit {
 
   changeState() {
     this.newFriend = !this.newFriend
+    if (this.newFriend) {
+      this.button_newFriend = "Close"
+    } else {
+      this.button_newFriend = "Add a new friend"
+    }
   }
 }

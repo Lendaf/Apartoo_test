@@ -1,0 +1,27 @@
+<div class="center">
+    <form #form="ngForm" (submit)="filter()">
+        <mat-card-content>
+            <mat-form-field class="right-padding">
+                <mat-select required name="type" [(ngModel)]="param.type">
+                    <mat-option *ngFor="let type of types" [value]="type.value">
+                      {{type.value}}
+                    </mat-option>
+                </mat-select>    
+            </mat-form-field>
+            <mat-form-field class="right-padding">
+                <input matInput type="text" name="key" required [(ngModel)]="param.filter"/>
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit">Filtrer</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </form>
+    <mat-list>
+        <mat-list-item *ngFor="let user of filtered">
+            <h3 matLine> username: {{ user.username }} </h3>
+            <h4 matLine> family: {{ user.family }} </h4>
+            <h4 matLine> race: {{ user.race }} </h4>
+            <h4 matLine> food: {{ user.food }} </h4>
+        </mat-list-item>
+    </mat-list>
+</div>

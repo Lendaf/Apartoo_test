@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { FriendService } from '../shared/services/friend.service';
 
 const BASE_URL = 'http://localhost:8080/api';
 
@@ -15,23 +15,24 @@ export class FriendsComponent implements OnInit {
     username: localStorage.username,
     friends: [{ username: '' }]
   }
-  constructor(private http: HttpClient) { }
+
+  constructor(private friendService: FriendService) { }
 
   ngOnInit(): void {
-    this.http.get(`${BASE_URL}/findUser?username=${localStorage.username}`)
+    this.friendService.getCurrentUser(localStorage.username)
       .subscribe((res: any) => {
         if (res.status) {
           this.currentUser.friends = res.data.friends
-          localStorage.friends = JSON.stringify(res.data.friends)
         } else {
           alert(res.data)
         }
       })
-    this.http.get(`${BASE_URL}/getAllUser`)
+    this.friendService.getAllUser()
       .subscribe((res: any) => {
         if (res.status) {
           this.users = res.data
           this.checkFriend()
+          this.friendService.updateInfo(this.users, this.currentUser)
         } else {
           alert(res.data)
         }
@@ -55,9 +56,8 @@ export class FriendsComponent implements OnInit {
     }
     this.users.push(unfriend)
     this.currentUser.friends = this.currentUser.friends.filter(user => user.username !== unfriend.username)
-    localStorage.friends = JSON.stringify(this.currentUser.friends)
-    this.http.put(`${BASE_URL}/deleteFriend`, fd)
-      .subscribe(() => console.log("deleted"))
+    this.friendService.deleteFriend(fd)
+      .subscribe(() => this.friendService.updateInfo(this.users, this.currentUser))
   }
 
   addFriends (newFriend: any) {
@@ -69,10 +69,9 @@ export class FriendsComponent implements OnInit {
       "1": this.currentUser
     }
     this.currentUser.friends.push(newFriend)
-    localStorage.friends = JSON.stringify(this.currentUser.friends)
     this.users = this.users.filter(user => user.username !== newFriend.username)
-    this.http.put(`${BASE_URL}/addFriend`, fd)
-      .subscribe(() => console.log("added"))
+    this.friendService.addFriend(fd)
+      .subscribe(() => this.friendService.updateInfo(this.users, this.currentUser))
   }
 
 }

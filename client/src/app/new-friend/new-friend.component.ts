@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../shared/services/auth.service';
+import { FriendService } from '../shared/services/friend.service';
 
 const BASE_URL = 'http://localhost:8080/api';
 
@@ -9,21 +11,12 @@ const BASE_URL = 'http://localhost:8080/api';
   styleUrls: ['./new-friend.component.css']
 })
 export class NewFriendComponent implements OnInit {
-  Pangolin = {
-    username: '',
-    email: '',
-    age: '',
-    family: '',
-    race: '',
-    food: '',
-    password: '',
-    confirmPassword: '',
-    friend: []
-  }
+  Pangolin = null
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService: AuthService, private friendService: FriendService) { }
 
   ngOnInit(): void {
+    this.Pangolin = this.authService.Pangolin
   }
 
   makeFriend() {
@@ -34,26 +27,27 @@ export class NewFriendComponent implements OnInit {
       },
       "1": {
         username: localStorage.username,
-        friends: JSON.parse(localStorage.friends)
+        friends: this.friendService.currentUser.friends
       }
     }
     fd[1].friends.push({username: this.Pangolin.username})
-    this.http.put(`${BASE_URL}/addFriend`, fd)
+    this.friendService.addFriend(fd)
       .subscribe(() => console.log("added"))
   }
 
   SignUp() {
     if (this.Pangolin.password === this.Pangolin.confirmPassword) {
-      this.http.post(`${BASE_URL}/signUp`, this.Pangolin)
+      this.authService.signUp(this.Pangolin)
         .subscribe((res: any) => {
+          console.log(res)
           if (res.status) {
             this.makeFriend()
-           window.location.reload()
           } else {
-            console.log(res.status)
             alert(res.data)
           }
         })
+    } else {
+      alert("password and confirm password should be the same")
     }
   }
 }

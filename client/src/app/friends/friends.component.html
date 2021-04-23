@@ -6,20 +6,20 @@
         <mat-card-content style="width: 50%; float: left;">
             <mat-list>
                 <mat-list-item *ngFor="let friend of currentUser.friends">
-                <h3 matLine> {{ friend.username }} </h3>
-                <button mat-icon-button color="warn" (click)="deleteFriends(friend)">
-                    <mat-icon>delete</mat-icon>
-                </button>
+                    <h3 matLine> {{ friend.username }} </h3>
+                    <button mat-icon-button color="warn" (click)="deleteFriends(friend)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </mat-list-item>
             </mat-list>
         </mat-card-content>
         <mat-card-content style="width: 50%; float: right;">
             <mat-list>
                 <mat-list-item *ngFor="let friend of users">
-                <h3 matLine> {{ friend.username }} </h3>
-                <button mat-icon-button color="green" (click)="addFriends(friend)">
-                    <mat-icon>group_add</mat-icon>
-                </button>
+                    <h3 matLine> {{ friend.username }} </h3>
+                    <button mat-icon-button color="green" (click)="addFriends(friend)">
+                        <mat-icon>group_add</mat-icon>
+                    </button>
                 </mat-list-item>
             </mat-list>
         </mat-card-content>    

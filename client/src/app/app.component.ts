@@ -9,7 +9,8 @@ export class AppComponent {
   title = 'Apartoo-test';
   links = [
     { path: 'auth' },
-    { path: 'profile' },  
+    { path: 'profile' },
+    { path: 'users' }
   ]
 
   disconnect() {

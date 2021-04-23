@@ -4,7 +4,7 @@
         <app-friends class="right-component"></app-friends>
         <div class="center">
             <button (click)="changeState()" >
-                add a new friend
+                {{button_newFriend}}
             </button>
             <app-new-friend *ngIf="newFriend"></app-new-friend>    
         </div>

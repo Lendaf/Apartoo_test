@@ -13,6 +13,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { FriendsComponent } from './friends/friends.component';
 import { NewFriendComponent } from './new-friend/new-friend.component';
 
+import { AuthService } from './shared/services/auth.service';
+import { FriendService } from './shared/services/friend.service';
+import { UsersComponent } from './users/users.component';
+import { FilterComponent } from './filter/filter.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +25,9 @@ import { NewFriendComponent } from './new-friend/new-friend.component';
     ProfileComponent,
     SettingsComponent,
     FriendsComponent,
-    NewFriendComponent
+    NewFriendComponent,
+    UsersComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,10 @@ import { NewFriendComponent } from './new-friend/new-friend.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    FriendService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
