@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../shared/services/auth.service';
-
-const BASE_URL = 'http://localhost:8080/api';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
-  selector: 'app-auth',
+  selector: 'profile-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })

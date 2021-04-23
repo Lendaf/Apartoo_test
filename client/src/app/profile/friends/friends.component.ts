@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FriendService } from '../shared/services/friend.service';
-
-const BASE_URL = 'http://localhost:8080/api';
+import { FriendService } from '../../shared/services/friend.service';
 
 @Component({
-  selector: 'app-friends',
+  selector: 'profile-friends',
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.css']
 })

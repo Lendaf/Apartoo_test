@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
-import { ProfileComponent } from './profile/profile.component';
-import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
-  { path: 'auth', component: AuthComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'users', component: UsersComponent }
+  { path: 'profile',  loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
+  { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule)}
 ];
 
 @NgModule({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { filter } from 'rxjs/operators'
-import { FriendService } from '../shared/services/friend.service';
+import { FriendService } from '../../shared/services/friend.service';
 
 @Component({
-  selector: 'app-filter',
+  selector: 'users-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })

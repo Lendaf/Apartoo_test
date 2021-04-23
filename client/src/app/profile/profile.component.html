@@ -1,16 +1,16 @@
 <div>
     <div *ngIf="isConnected;else Login">
-        <app-settings class="left-component"></app-settings>
-        <app-friends class="right-component"></app-friends>
+        <profile-settings class="left-component"></profile-settings>
+        <profile-friends class="right-component"></profile-friends>
         <div class="center">
             <button (click)="changeState()" >
                 {{button_newFriend}}
             </button>
-            <app-new-friend *ngIf="newFriend"></app-new-friend>    
+            <profile-new-friend *ngIf="newFriend"></profile-new-friend>    
         </div>
     </div>
     <ng-template #Login>
-        <app-auth></app-auth>
+        <profile-auth></profile-auth>
     </ng-template>
 </div>
 

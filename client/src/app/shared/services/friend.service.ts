@@ -33,4 +33,8 @@ export class FriendService {
   addFriend(fd) {
     return this.http.put(`${BASE_URL}/addFriend`, fd)
   }
+
+  updateUserInfo(fd) {
+    return this.http.put(`${BASE_URL}/updateUser`, fd)
+  }
 }
